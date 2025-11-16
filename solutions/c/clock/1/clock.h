@@ -1,0 +1,24 @@
+#ifndef CLOCK_H
+#define CLOCK_H
+
+#include <stdbool.h>
+
+#define MAX_STR_LEN sizeof("##:##")
+
+typedef struct {
+   char text[MAX_STR_LEN];
+} clock_t;
+
+typedef struct{
+    unsigned int hour;
+    unsigned int minute;
+} time_t;
+
+clock_t clock_create(int hour, int minute);
+clock_t clock_add(clock_t clock, int minute_add);
+clock_t clock_subtract(clock_t clock, int minute_subtract);
+bool clock_is_equal(clock_t a, clock_t b);
+time_t extract_time(clock_t clock);
+int get_total_mins(int hour, int minute);
+
+#endif
